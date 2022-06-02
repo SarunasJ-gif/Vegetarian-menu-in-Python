@@ -1,6 +1,4 @@
 
-
-
 class Product:
     def __init__(self, name, weight, calories):
         self.name = name
