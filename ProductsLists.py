@@ -150,7 +150,8 @@ def party_food_menu():
     ice_cream = PartyFood("Ice creams", 8)
     cake = PartyFood("Snickers cake", 1)
     donuts = PartyFood("Donuts", 8)
-    chocolate_cake = PartyFood("Chocolate cakes with Riccota cheese filling and light cream, flavored with fresh raspberries", 8)
+    chocolate_cake = PartyFood("Chocolate cakes with Riccota cheese filling and light cream, flavored with fresh "
+                               "raspberries", 8)
     tiramisu = PartyFood("Tiramisu flavored with amaret and dark chocolate", 8)
     berries = PartyFood("Containers with Crème brûlée cream and berries", 8)
     berry_cheese = PartyFood("Wild berry and cream cheese pies", 8)

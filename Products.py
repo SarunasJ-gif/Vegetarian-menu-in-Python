@@ -1,9 +1,19 @@
-
 class Product:
     def __init__(self, name, weight, calories):
         self.name = name
         self.weight = weight
         self.calories = calories
+
+
+class Product1:
+    def __init__(self, name):
+        self.name = name
+
+
+class Product2:
+    def __init__(self, name, quantity):
+        self.name = name
+        self.quantity = quantity
 
 
 class Protein(Product):
@@ -18,7 +28,7 @@ class Carbs(Product):
 
 class Fats(Product):
     def __init__(self, name, weight, calories):
-        super(). __init__(name, weight, calories)
+        super().__init__(name, weight, calories)
 
 
 class Fruits(Product):
@@ -26,17 +36,17 @@ class Fruits(Product):
         super().__init__(name, weight, calories)
 
 
-class SummerVegetables(Product):
-     def __init__(self, name):
-            super(). __init__(name)
-
-
-class WinterVegetables(Product):
+class SummerVegetables(Product1):
     def __init__(self, name):
-        super(). __init__(name)
+        super().__init__(name)
 
 
-class PartyFood(Product):
+class WinterVegetables(Product1):
+    def __init__(self, name):
+        super().__init__(name)
+
+
+class PartyFood(Product2):
     def __init__(self, name, quantity):
-        super(). __init__(name)
-        self.quantity = quantity
+        super().__init__(name, quantity)
+
