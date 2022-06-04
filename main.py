@@ -1,17 +1,13 @@
 from action import run
 
-# def print_hi(name):
-# #   # Use a breakpoint in the code line below to debug your script.
-#     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-# def calories_of_day():
-#     print("Please enter your preferred daily caloric intake: ")
-#     calories_per_day_str = input("-> ")
-#     calories_per_day = int(calories_per_day_str)
-#     return calories_per_day
+
+def begining():
+    print("""\n\"Eating healthy, feeling good, having a lot of energy and keeping your body beautiful and healthy
+is a way of life. We will not only help you eat healthy, but also make sure you eat delicious and
+have a lot of food. We will offer you a vegetarian menu for the whole week, and we will also be 
+able to create a vegetarian menu for the party\"""")
+
 
 if __name__ == '__main__':
-    # print_hi("Python")
-   # calories_of_day()
+    begining()
     run()
-
-
