@@ -1,6 +1,6 @@
 Project name
 
-# Vegetarian-menu-in-Java
+# Vegetarian-menu-in-Python
 
 ---
 
@@ -27,7 +27,7 @@ add or remove desired products from the list. You can check the lists for each f
 
 ## Technologies
 
-- Java
+- Python
 
 ---
 
