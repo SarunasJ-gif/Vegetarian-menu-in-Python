@@ -1,3 +1,4 @@
+
 from tabulate import tabulate
 from productsLists import *
 from products import *
@@ -130,37 +131,57 @@ def delete_winter_vegetables(name):
         print(f"{name} was deleted from list")
 
 
-#
 def print_protein_list():
+    protein_list = []
     for index, protein in enumerate(proteins):
-        print(str(index + 1) + "." + protein.name + " " + str(protein.weight) + "g" + " " + str(protein.calories) + "kCal")
+        items_list = [index, protein.name, protein.weight, protein.calories]
+        protein_list.append(items_list)
+    print(tabulate(protein_list, headers=("Nr.", "Name", "Weight g", "Calories kCal")))
 
 
 def print_carbs_list():
+    carbs_list = []
     for index, carb in enumerate(carbs):
-        print(str(index + 1) + "." + carb.name + " " + str(carb.weight) + "g" + " " + str(carb.calories) + "kCal")
+        items_list = [index, carb.name, carb.weight, carb.calories]
+        carbs_list.append(items_list)
+    print(tabulate(carbs_list, headers=("Nr.", "Name", "Weight g", "Calories kCal")))
 
 
 def print_fats_list():
+    fats_list = []
     for index, fat in enumerate(fats):
-        print(str(index + 1) + "." + fat.name + " " + str(fat.weight) + "g" + " " + str(fat.calories) + "kCal")
+        items_list = [index, fat.name, fat.weight, fat.calories]
+        fats_list.append(items_list)
+    print(tabulate(fats_list, headers=("Nr.", "Name", "Weight g", "Calories kCal")))
 
 
 def print_fruits_list():
+    fruits_list = []
     for index, fruit in enumerate(fruits):
-        print(str(index + 1) + "." + fruit.name + " " + str(fruit.weight) + "g" + " " + str(fruit.calories) + "kCal")
+        items_list = [index, fruit.name, fruit.weight, fruit.calories]
+        fruits_list.append(items_list)
+    print(tabulate(fruits_list, headers=("Nr.", "Name", "Weight g", "Calories kCal")))
 
 
 def print_summer_vegetables_list():
+    summer = []
     for index, summer_vegetable in enumerate(summer_vegetables):
-        print(str(index + 1) + "." + summer_vegetable.name + " 100g")
+        items_list = [index, summer_vegetable.name, "100g"]
+        summer.append(items_list)
+    print(tabulate(summer, headers=("Nr.", "Name", "Weight g")))
 
 
 def print_winter_vegetables_list():
+    winter = []
     for index, winter_vegetable in enumerate(winter_vegetables):
-        print(str(index + 1) + "." + winter_vegetable.name + " 100g")
+        items_list = [index, winter_vegetable.name, "100g"]
+        winter.append(items_list)
+    print(tabulate(winter, headers=("Nr.", "Name", "Weight g")))
 
 
 def print_party_food_list():
+    party = []
     for index, party_food in enumerate(partyMenu):
-        print(str(index + 1) + "." + party_food.name + " " + str(party_food.quantity) + "pcs")
+        items_list = [index, party_food.name, party_food.quantity]
+        party.append(items_list)
+    print(tabulate(party, headers=("Nr.", "Name", "pcs.")))
