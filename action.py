@@ -19,6 +19,7 @@ def run():
                     print(vegetables_by_season())
                     print(menu.dinner_menu_random_list())
                     print(vegetables_by_season())
+                print("\nDelicious!")
                 menu_choice = choose_option()
             case "party":
                 menu2 = Menu(1)
@@ -251,12 +252,57 @@ def delete_food_from_list():
 
 
 def calories():
-    print("Please enter your preferred daily caloric intake: ")
-    correct_input = False
-    while not correct_input:
+    correct_height = False
+    while not correct_height:
         try:
-            calories_per_day = int(input("-> "))
-            correct_input = True
+            height = int(input("Please enter your height in centimeters: "))
+            correct_height = True
         except ValueError:
-            print("Please enter the number: ")
+            print("Invalid input... ")
+    correct_weight = False
+    while not correct_weight:
+        try:
+            weight = int(input("Please enter your weight in kg: "))
+            correct_weight = True
+        except ValueError:
+            print("Invalid input... ")
+    correct_age = False
+    while not correct_age:
+        try:
+            age = int(input("Please enter your age: "))
+            correct_age = True
+        except ValueError:
+            print("Invalid input... ")
+    print("What is your activity:\n " +
+          "1 - do not exercise and do not move,\n " +
+          "2 - you exercise three times a week and move on average,\n " +
+          "3 - You exercise five times a week and are very active: ")
+    correct_activity = False
+    while not correct_activity:
+        try:
+            activity = int(input("-> "))
+            correct_activity = True
+        except ValueError:
+            print("Invalid input... ")
+    if activity == 1:
+        coefficient = 1.2
+    elif activity == 2:
+        coefficient = 1.38
+    else:
+        coefficient = 1.6
+
+    calories_per_day = int((10 * weight + 6.25 * height - 5 * age + 5) * coefficient)
+    print("\nYou need to consume " + str(calories_per_day) + " calories per day.")
+    print("You all week menu:\n ")
     return calories_per_day
+
+# def calories():
+#     print("Please enter your preferred daily caloric intake: ")
+#     correct_input = False
+#     while not correct_input:
+#         try:
+#             calories_per_day = int(input("-> "))
+#             correct_input = True
+#         except ValueError:
+#             print("Please enter the number: ")
+#     return calories_per_day
