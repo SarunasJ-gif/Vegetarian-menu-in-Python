@@ -1,6 +1,6 @@
 from datetime import date
-from Menu import *
-from UpdateMenu import *
+from menu import *
+from updateMenu import *
 
 
 def run():
@@ -9,22 +9,35 @@ def run():
     while run_application:
         match menu_choice:
             case "menu":
+                menu = Menu(calories())
                 week_days = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
                 for day in week_days:
                     print("\n" + day + ":")
-                    print(breakfast_menu_random_list())
-                    vegetables_by_season()
-                    print(lunch_menu_random_list())
-                    vegetables_by_season()
-                    print(dinner_menu_random_list())
-                    vegetables_by_season()
+                    print(menu.breakfast_menu_random_list())
+                    print(vegetables_by_season())
+                    print(menu.lunch_menu_random_list())
+                    print(vegetables_by_season())
+                    print(menu.dinner_menu_random_list())
+                    print(vegetables_by_season())
                 menu_choice = choose_option()
             case "party":
-                dishes_amount_str = input("Please enter as many dishes as you want to order: ")
-                dishes_amount = int(dishes_amount_str)
-                number_of_participants_str = input("Please enter how many participants will attend the party: ")
-                number_of_participants = int(number_of_participants_str)
-                party_menu_random_list(dishes_amount, number_of_participants)
+                menu2 = Menu(1)
+                correct_dishes_input = False
+                while not correct_dishes_input:
+                    try:
+                        dishes_amount = int(input("Please enter as many dishes as you want to order: "))
+                        correct_dishes_input = True
+                    except ValueError:
+                        print("Not valid input, please enter the number: ")
+                correct_participants_input = False
+                while not correct_participants_input:
+                    try:
+                        number_of_participants = int(
+                            input("Please enter how many participants will attend the party: "))
+                        correct_participants_input = True
+                    except ValueError:
+                        print("Not valid input, please enter the number: ")
+                menu2.party_menu_random_list(dishes_amount, number_of_participants)
                 menu_choice = choose_option()
             case "add":
                 add_food()
@@ -58,11 +71,12 @@ def choose_option():
 
 
 def vegetables_by_season():
+    menu1 = Menu(1)
     today = date.today().month
     if today == 10 or today == 11 or today == 12 or today == 1 or today == 2:
-        return winter_time_vegetables_random_list()
+        return menu1.winter_time_vegetables_random_list()
     else:
-        return summer_time_vegetables_random_list()
+        return menu1.summer_time_vegetables_random_list()
 
 
 def print_lists():
@@ -115,31 +129,70 @@ def add_food():
     match option_to_add:
         case "1":
             protein_name = input("Please enter food name: ")
-            protein_weight_str = input("Please enter food weight: ")
-            protein_weight = int(protein_weight_str)
-            protein_calories_str = input("Please enter food calories: ")
-            protein_calories = int(protein_calories_str)
+            correct_weight_input = False
+            while not correct_weight_input:
+                try:
+                    protein_weight = int(input("Please enter food weight: "))
+                    correct_weight_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
+            correct_calories_input = False
+            while not correct_calories_input:
+                try:
+                    protein_calories = int(input("Please enter food calories: "))
+                    correct_calories_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
             adding_protein(protein_name, protein_weight, protein_calories)
         case "2":
             carbs_name = input("Please enter food name: ")
-            carbs_weight_str = input("Please enter food weight: ")
-            carbs_weight = int(carbs_weight_str)
-            carbs_calories_str = input("Please enter food calories: ")
-            carbs_calories = int(carbs_calories_str)
+            correct_weight_input = False
+            while not correct_weight_input:
+                try:
+                    carbs_weight = int(input("Please enter food weight: "))
+                    correct_weight_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
+            correct_calories_input = False
+            while not correct_calories_input:
+                try:
+                    carbs_calories = int(input("Please enter food calories: "))
+                    correct_calories_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
             adding_carbs(carbs_name, carbs_weight, carbs_calories)
         case "3":
             fat_name = input("Please enter food name: ")
-            fat_weight_str = input("Please enter food weight: ")
-            fat_weight = int(fat_weight_str)
-            fat_calories_str = input("Please enter food calories: ")
-            fat_calories = int(fat_calories_str)
+            correct_weight_input = False
+            while not correct_weight_input:
+                try:
+                    fat_weight = int(input("Please enter food weight: "))
+                    correct_weight_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
+            while not correct_calories_input:
+                try:
+                    fat_calories = int(input("Please enter food calories: "))
+                    correct_calories_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
             adding_fats(fat_name, fat_weight, fat_calories)
         case "4":
             fruit_name = input("Please enter food name: ")
-            fruit_weight_str = input("Please enter food weight: ")
-            fruit_weight = int(fruit_weight_str)
-            fruit_calories_str = input("Please enter food calories: ")
-            fruit_calories = int(fruit_calories_str)
+            correct_weight_input = False
+            while not correct_weight_input:
+                try:
+                    fruit_weight = int(input("Please enter food weight: "))
+                    correct_weight_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
+            correct_calories_input = False
+            while not correct_calories_input:
+                try:
+                    fruit_calories = int(input("Please enter food calories: "))
+                    correct_calories_input = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
             adding_fruits(fruit_name, fruit_weight, fruit_calories)
         case "5":
             summer_vegetables_name = input("Please enter food name: ")
@@ -149,8 +202,13 @@ def add_food():
             adding_winter_vegetables(winter_vegetables_name)
         case "7":
             party_dish_name = input("Enter the name of the dish: ")
-            quantity_str = input("Please enter the amount of food in units: ")
-            quantity = int(quantity_str)
+            correct_amount = False
+            while not correct_amount:
+                try:
+                    quantity = int(input("Please enter the amount of food in units: "))
+                    correct_amount = True
+                except ValueError:
+                    print("Not valid input, please enter the number: ")
             adding_party_food(party_dish_name, quantity)
         case _:
             print("Invalid input...")
@@ -190,3 +248,15 @@ def delete_food_from_list():
             delete_party_food(party_food_name)
         case _:
             print("Invalid input...")
+
+
+def calories():
+    print("Please enter your preferred daily caloric intake: ")
+    correct_input = False
+    while not correct_input:
+        try:
+            calories_per_day = int(input("-> "))
+            correct_input = True
+        except ValueError:
+            print("Please enter the number: ")
+    return calories_per_day

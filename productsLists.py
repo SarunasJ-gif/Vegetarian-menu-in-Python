@@ -1,10 +1,10 @@
-from Products import Protein
-from Products import Fats
-from Products import Carbs
-from Products import Fruits
-from Products import SummerVegetables
-from Products import WinterVegetables
-from Products import PartyFood
+from products import Protein
+from products import Fats
+from products import Carbs
+from products import Fruits
+from products import SummerVegetables
+from products import WinterVegetables
+from products import PartyFood
 
 
 def protein_menu():

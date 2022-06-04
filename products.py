@@ -46,7 +46,9 @@ class WinterVegetables(Product1):
         super().__init__(name)
 
 
-class PartyFood(Product2):
+class PartyFood:
     def __init__(self, name, quantity):
-        super().__init__(name, quantity)
+        self.name = name
+        self.quantity = quantity
+
 

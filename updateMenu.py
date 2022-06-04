@@ -1,6 +1,6 @@
 from tabulate import tabulate
-from ProductsLists import *
-from Products import *
+from productsLists import *
+from products import *
 
 proteins = protein_menu()
 fats = fat_menu()
