@@ -9,6 +9,7 @@ Project name
 - [Description](#description)
 - [Technologies](#technologies)
 - [How To Use](#how-to-use)
+- [Set up](#set-up)
 
 ---
 
